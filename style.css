@@ -200,7 +200,7 @@ img {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(37, 17, 17, 0.75), rgba(58, 20, 20, 0.75)), url('https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(rgba(37, 17, 17, 0.50), rgba(58, 20, 20, 0.50)), url('hero.png');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -367,60 +367,128 @@ img {
 }
 
 /* Products Section */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Slider Styles */
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 480px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
     margin-bottom: 50px;
 }
 
-.product-card {
-    background: var(--white);
-    border: 1px solid #eee;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
 }
 
-.product-card:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    border-color: var(--secondary-color);
-    transform: translateY(-10px);
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
 }
 
-.icon-box {
-    width: 70px;
-    height: 70px;
-    background: #fdf2f4;
-    /* Light red bg */
-    border-radius: 50%;
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slide-track {
+    animation: scroll 40s linear infinite;
     display: flex;
-    justify-content: center;
+    width: calc(320px * 22);
+    /* 320px slide width * number of slides (15 original + 7 duplicates) */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-320px * 15));
+        /* Move by the width of original 15 slides */
+    }
+}
+
+.slide {
+    height: 450px;
+    width: 320px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 0 auto 20px;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+    margin: 10px;
+    border-radius: 8px;
+    position: relative;
+    background: #fff;
 }
 
-.icon-box i {
-    font-size: 1.8rem;
-    color: var(--primary-color);
+.slide:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
-.product-card h3 {
+/* Rent Badge */
+.rent-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #ff0000;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 3px;
+    z-index: 2;
+    text-transform: capitalize;
+}
+
+/* Image Container */
+.image-container {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
-    color: var(--dark-color);
 }
 
-.product-card ul {
-    text-align: left;
-    padding-left: 20px;
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.product-card li {
-    list-style-type: disc;
-    margin-bottom: 8px;
-    color: #666;
+/* Text Styles */
+.brand-name {
+    color: #DAA520;
+    /* Goldenrod color like the reference */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.model-name {
+    color: #333;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .special-features {
