@@ -452,11 +452,11 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    padding: 0 50px 0 50px;
+    padding: 0 80px 0 80px;
 }
 
 .feature-box {
-    padding: 30px;
+    padding: 30px 50px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 20px;
@@ -537,44 +537,100 @@ img {
 
 /* Products Section */
 /* Slider Styles */
-/* Grid Layout for Products (formerly Slider) */
+/* Manual Slider Styles */
+.slider-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.slider-header-wrapper .section-header {
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.slider-header-wrapper .section-header h2 {
+    margin-bottom: 5px;
+}
+
+.slider-header-wrapper .underline {
+    margin: 0;
+    text-align: left;
+    margin-left: 0;
+}
+
+.slider-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.nav-btn:hover {
+    color: var(--primary-color);
+}
+
+.nav-separator {
+    color: #ddd;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
 .slider {
     background: white;
     margin: auto;
     position: relative;
     width: 100%;
     margin-bottom: 50px;
-    padding: 20px 0;
 }
 
-.slider::before,
-.slider::after {
-    display: none;
+.slider-viewport {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    /* Constraints width to match header */
+    margin: 0 auto;
+    padding: 20px 0;
+    /* Vertical breathing room */
 }
 
 .slide-track {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
     padding: 0 20px;
+    /* Align with header padding */
 }
 
 .slide {
-    height: 450px;
-    width: 100%;
+    height: 400px;
+    /* Slightly Reduced height */
+    width: 260px;
+    /* Fixed width to fit ~4 in 1200px */
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    transition: transform 0.3s ease;
     border: 1px solid #f0f0f0;
     border-radius: 8px;
     position: relative;
     background: #fff;
+    flex-shrink: 0;
+    /* Prevent shrinking */
 }
 
 .slide:hover {
