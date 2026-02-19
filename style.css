@@ -490,8 +490,8 @@ img {
     margin-bottom: 5px;
     letter-spacing: 0.5px;
     line-height: 1.4;
-    align-self: flex-end;
-    /* Align title near the top of the number if needed, or flex-end to sit on baseline */
+    align-self: start;
+    /* Changed from center to start to align with top of number */
 }
 
 .feature-box p {
