@@ -569,6 +569,11 @@ img {
 }
 
 /* Products Section */
+.products-section {
+    padding-top: 40px;
+    padding-bottom: var(--section-spacing);
+}
+
 /* Slider Styles */
 /* Manual Slider Styles */
 .slider-header-wrapper {
@@ -717,6 +722,12 @@ img {
 }
 
 /* Services Section */
+.services-section {
+    padding-top: 40px;
+    /* Reduced to align better with navbar on scroll */
+    padding-bottom: var(--section-spacing);
+}
+
 .services-section .section-header {
     margin-bottom: 30px;
     /* Reduced from default 50px */
