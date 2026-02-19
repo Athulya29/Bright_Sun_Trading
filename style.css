@@ -452,6 +452,7 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+    padding: 0 50px 0 50px;
 }
 
 .feature-box {
@@ -536,60 +537,34 @@ img {
 
 /* Products Section */
 /* Slider Styles */
+/* Grid Layout for Products (formerly Slider) */
 .slider {
     background: white;
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-    height: 480px;
     margin: auto;
-    margin-left: -20px;
-    overflow: hidden;
     position: relative;
     width: 100%;
     margin-bottom: 50px;
+    padding: 20px 0;
 }
 
 .slider::before,
 .slider::after {
-    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 100px;
-    z-index: 2;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
+    display: none;
 }
 
 .slide-track {
-    animation: scroll 60s linear infinite;
-    display: flex;
-    width: calc(320px * 22);
-    /* 320px slide width * number of slides (15 original + 7 duplicates) */
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-320px * 15));
-        /* Move by the width of original 15 slides */
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .slide {
     height: 450px;
-    width: 320px;
+    width: 100%;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -597,7 +572,6 @@ img {
     justify-content: flex-start;
     transition: transform 0.3s ease;
     border: 1px solid #f0f0f0;
-    margin: 10px;
     border-radius: 8px;
     position: relative;
     background: #fff;
@@ -666,6 +640,11 @@ img {
     font-size: 1.1rem;
 }
 
+.services-content {
+    /* Added to constrain text but allow cards full width if needed, or just padding */
+    padding: 0 100px;
+}
+
 .service-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -674,7 +653,7 @@ img {
 
 .service-card {
     background: var(--white);
-    padding: 30px;
+    padding: 20px;
     border-radius: 12px;
     /* Increased radius for modern look */
     text-align: center;
@@ -718,7 +697,7 @@ img {
 
 .service-img {
     width: 100%;
-    height: 180px;
+    height: 150px;
     object-fit: cover;
     border-radius: 4px;
     margin-bottom: 20px;
