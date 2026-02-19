@@ -373,6 +373,7 @@ img {
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
     height: 480px;
     margin: auto;
+    margin-left: -20px;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -401,7 +402,7 @@ img {
 }
 
 .slide-track {
-    animation: scroll 40s linear infinite;
+    animation: scroll 60s linear infinite;
     display: flex;
     width: calc(320px * 22);
     /* 320px slide width * number of slides (15 original + 7 duplicates) */
@@ -425,7 +426,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     transition: transform 0.3s ease;
     border: 1px solid #f0f0f0;
     margin: 10px;
@@ -440,20 +441,7 @@ img {
     z-index: 1;
 }
 
-/* Rent Badge */
-.rent-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: #ff0000;
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border-radius: 3px;
-    z-index: 2;
-    text-transform: capitalize;
-}
+
 
 /* Image Container */
 .image-container {
