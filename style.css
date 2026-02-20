@@ -502,15 +502,17 @@ img {
 .features-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 20px;
     padding: 0 80px 0 80px;
 }
 
 .feature-box {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    padding: 30px 40px;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 20px;
+    row-gap: 10px;
     background: var(--surface-color);
     border-radius: 16px;
     transition: var(--transition-smooth);
@@ -518,6 +520,7 @@ img {
     box-shadow: var(--shadow-sm);
     position: relative;
     z-index: 1;
+    align-items: start;
 }
 
 .feature-box:hover {
@@ -526,13 +529,17 @@ img {
 }
 
 .feature-number {
-    font-size: 3rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--secondary-color);
     /* Gold numbers */
     opacity: 0.8;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+    margin-top: 5px;
 }
 
 .feature-title {
@@ -540,11 +547,12 @@ img {
     font-weight: 700;
     color: #333;
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     letter-spacing: 0.5px;
     line-height: 1.4;
-    align-self: start;
-    /* Changed from center to start to align with top of number */
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
 }
 
 .feature-box p {
@@ -552,7 +560,7 @@ img {
     color: #666;
     line-height: 1.6;
     grid-column: 2;
-    /* Ensure text stays in the second column under the title */
+    grid-row: 2;
 }
 
 @media (max-width: 900px) {
@@ -628,10 +636,48 @@ img {
 
 .slider {
     background: white;
-    margin: auto;
+    margin: 0 auto 50px;
     position: relative;
     width: 100%;
-    margin-bottom: 50px;
+    max-width: 1350px;
+    /* Constrain width but allow space for buttons outside viewport */
+    padding: 0 40px;
+    /* Space for buttons */
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 6px 16px rgba(122, 15, 43, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn-prev {
+    left: -25px;
+}
+
+.slider-btn-next {
+    right: -25px;
 }
 
 .slider-viewport {
@@ -649,7 +695,6 @@ img {
     gap: 20px;
     width: max-content;
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    padding: 0 20px;
     /* Align with header padding */
 }
 
@@ -1245,16 +1290,17 @@ img {
 }
 
 .btn-enquire:hover {
-    color: #DAA520;
-    /* Keep the gold color, maybe slightly darker if needed, but #b8860b might be too dark or weird. Let's try sticking to #DAA520 or slightly darker #C59300 */
-    color: #C59300;
+    color: #b8860b;
+    /* Darker gold on hover */
     background-color: transparent;
-    transform: translateX(3px);
-    /* Reduced movement */
+    /* Ensure background stays transparent */
+    transform: translateX(5px);
+    /* Whole button moves slightly */
     box-shadow: none;
+    /* Remove default btn shadow */
 }
 
 .btn-enquire:hover i {
-    transform: translateX(3px);
-    /* Move only right, not up, to keep it aligned */
+    transform: translate(5px, -5px);
+    /* Arrow moves up-right */
 }
