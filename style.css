@@ -531,7 +531,7 @@ img {
 .feature-number {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: #b8962e;
     /* Gold numbers */
     opacity: 0.8;
     line-height: 1;
