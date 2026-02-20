@@ -1245,17 +1245,16 @@ img {
 }
 
 .btn-enquire:hover {
-    color: #b8860b;
-    /* Darker gold on hover */
+    color: #DAA520;
+    /* Keep the gold color, maybe slightly darker if needed, but #b8860b might be too dark or weird. Let's try sticking to #DAA520 or slightly darker #C59300 */
+    color: #C59300;
     background-color: transparent;
-    /* Ensure background stays transparent */
-    transform: translateX(5px);
-    /* Whole button moves slightly */
+    transform: translateX(3px);
+    /* Reduced movement */
     box-shadow: none;
-    /* Remove default btn shadow */
 }
 
 .btn-enquire:hover i {
-    transform: translate(5px, -5px);
-    /* Arrow moves up-right */
+    transform: translateX(3px);
+    /* Move only right, not up, to keep it aligned */
 }
