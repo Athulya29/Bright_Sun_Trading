@@ -270,7 +270,7 @@ img {
 .hero {
     height: 100vh;
     min-height: 700px;
-    background: linear-gradient(135deg, rgba(30, 5, 10, 0.85), rgba(60, 10, 20, 0.75)), url('hero.png');
+    background: linear-gradient(135deg, rgba(37, 17, 17, 0.75), rgba(58, 20, 20, 0.75)), url('hero.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -531,7 +531,7 @@ img {
 .feature-number {
     font-size: 2.2rem;
     font-weight: 700;
-    color: #b8962e;
+    color: ;
     /* Gold numbers */
     opacity: 0.8;
     line-height: 1;
